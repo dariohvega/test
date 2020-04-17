@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema elementFormDefault="qualified" version="1.0"
+           targetNamespace="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:complexType name="queueDescription">
+        <xs:sequence>
+            <xs:element name="LockDuration" type="xs:string" minOccurs="0"/>
+            <xs:element name="MaxSizeInMegabytes" type="xs:long" minOccurs="0"/>
+            <xs:element name="RequiresDuplicateDetection" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="RequiresSession" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="DeadLetteringOnMessageExpiration" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="EnableBatchedOperations" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="DefaultMessageTimeToLive" type="xs:string" minOccurs="0"/>
+            <xs:element name="DuplicateDetectionHistoryTimeWindow" type="xs:string" minOccurs="0"/>
+            <xs:element name="MaxDeliveryCount" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
