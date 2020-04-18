@@ -20,4 +20,17 @@
 	 <xs:element name="MessageCount" type="xs:string" minOccurs="0"/>                                                         
         </xs:all>
     </xs:complexType>
+	
+    <xs:element name="TopicDescription" type="tns:topicDescription"/>
+
+    <xs:complexType name="topicDescription">
+        <xs:sequence>
+            <xs:element name="MaxSizeInMegabytes" type="xs:long" minOccurs="0"/>
+            <xs:element name="RequiresDuplicateDetection" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="EnableBatchedOperations" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="DefaultMessageTimeToLive" type="xs:string" minOccurs="0"/>
+            <xs:element name="DuplicateDetectionHistoryTimeWindow" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+	
 </xs:schema>
