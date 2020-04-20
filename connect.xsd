@@ -64,29 +64,33 @@
     <xs:element name="Filter"/>
 
     <xs:complexType name="SqlFilter">
+        <xs:complexContent>
+            <xs:extension base="ruleFilter"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="TrueFilter">
+        <xs:complexContent>
+            <xs:extension base="ruleFilter"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="FalseFilter">
+        <xs:complexContent>
+            <xs:extension base="ruleFilter"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="CorrelationFilter">
+        <xs:complexContent>
+            <xs:extension base="ruleFilter"/>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="ruleFilter">
         <xs:sequence>
             <xs:element name="SqlExpression" type="xs:string" minOccurs="0"/>
             <xs:element name="CorrelationId" type="xs:string" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
-           
-    <xs:simpleType name="TrueFilter">
-        <xs:restriction base="xs:string"/>
-    </xs:simpleType>
-    <xs:simpleType name="FalseFilter">
-        <xs:restriction base="xs:string"/>
-    </xs:simpleType>
-    <xs:simpleType name="CorrelationFilter">
-        <xs:restriction base="xs:string"/>
-    </xs:simpleType>
 
     <xs:element name="Action"/>
-
-<!--    <xs:complexType name="ruleFilter">-->
-<!--        <xs:sequence>-->
-<!--            <xs:element name="SqlExpression" type="xs:string" minOccurs="0"/>-->
-<!--            <xs:element name="CorrelationId" type="xs:string" minOccurs="0"/>-->
-<!--        </xs:sequence>-->
-<!--    </xs:complexType>-->
 
 </xs:schema>
