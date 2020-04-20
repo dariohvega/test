@@ -68,14 +68,14 @@
 
     <xs:attribute name="RuleFilterType" type="tns:ruleFilterType"/>
 
-      <xs:simpleType name="ruleFilterType">
-        <xs:restriction base="xs:string">
-          <xs:enumeration value="SqlFilter"/>
-          <xs:enumeration value="TrueFilter"/>
-          <xs:enumeration value="FalseFilter"/>
-          <xs:enumeration value="CorrelationFilter"/>
-        </xs:restriction>
-      </xs:simpleType>
+      <xs:complexType name="ruleFilterType">
+        <xs:all>
+          <xs:element name="SqlFilter" minOccurs="0"/>
+          <xs:element name="TrueFilter"  minOccurs="0"/>
+          <xs:element name="FalseFilter"  minOccurs="0"/>
+          <xs:element name="CorrelationFilter" minOccurs="0"/>
+        </xs:all>
+      </xs:complexType>
 
     <xs:complexType name="ruleAction">
         <xs:sequence>
