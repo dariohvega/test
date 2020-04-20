@@ -63,8 +63,13 @@
 
     <xs:element name="Filter"/>
            
-    <xs:simpleType name="SqlFilter">
-        <xs:restriction base="xs:string"/>
+    <xs:simpleType name="ruleFilterType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SqlFilter"/>
+            <xs:enumeration value="TrueFilter"/>
+            <xs:enumeration value="FalseFilter"/>
+            <xs:enumeration value="CorrelationFilter"/>
+        </xs:restriction>
     </xs:simpleType>
 
     <xs:element name="Action"/>
