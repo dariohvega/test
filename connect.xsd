@@ -51,5 +51,18 @@
             <xs:element name="MessageCount" type="xs:int" minOccurs="0"/>
         </xs:all>
     </xs:complexType>
+           
+    <xs:element name="RuleDescription" type="tns:ruleDescription"/>
+
+    <xs:complexType name="ruleDescription">
+        <xs:all>
+            <xs:element ref="Filter" minOccurs="0"/>
+            <xs:element ref="Action" minOccurs="0"/>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:element name="Filter"/>
+
+    <xs:element name="Action"/>
 
 </xs:schema>
