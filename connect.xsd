@@ -62,6 +62,10 @@
     </xs:complexType>
 
     <xs:element name="Filter"/>
+           
+    <xs:simpleType name="SqlFilter">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
 
     <xs:element name="Action"/>
 
