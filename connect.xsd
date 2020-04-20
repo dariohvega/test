@@ -66,9 +66,9 @@
         <xs:attribute ref="tns:RuleFilterType" />
     </xs:complexType>
 
-    <xs:attribute name="RuleFilterType" type="tns:ruleFilterType"/>
+    <xs:attribute name="RuleFilterType" type="tns:type"/>
 
-      <xs:complexType name="ruleFilterType">
+      <xs:complexType name="type">
         <xs:all>
           <xs:element name="SqlFilter" minOccurs="0"/>
           <xs:element name="TrueFilter"  minOccurs="0"/>
@@ -82,6 +82,5 @@
             <xs:element name="SqlExpression" type="xs:string" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
-
 	
 </xs:schema>
