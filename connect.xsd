@@ -61,7 +61,7 @@
         </xs:all>
     </xs:complexType>
 
-    <xs:element name="Filter"/>
+    <xs:element name="Filter" type="tns:ruleFilterType"/>
            
     <xs:simpleType name="ruleFilterType">
         <xs:restriction base="xs:string">
