@@ -65,22 +65,22 @@
 
     <xs:complexType name="SqlFilter">
         <xs:complexContent>
-            <xs:extension base="ruleFilter"/>
+            <xs:extension base="tns:ruleFilter"/>
         </xs:complexContent>
     </xs:complexType>
     <xs:complexType name="TrueFilter">
         <xs:complexContent>
-            <xs:extension base="ruleFilter"/>
+            <xs:extension base="tns:ruleFilter"/>
         </xs:complexContent>
     </xs:complexType>
     <xs:complexType name="FalseFilter">
         <xs:complexContent>
-            <xs:extension base="ruleFilter"/>
+            <xs:extension base="tns:ruleFilter"/>
         </xs:complexContent>
     </xs:complexType>
     <xs:complexType name="CorrelationFilter">
         <xs:complexContent>
-            <xs:extension base="ruleFilter"/>
+            <xs:extension base="tns:ruleFilter"/>
         </xs:complexContent>
     </xs:complexType>
 
