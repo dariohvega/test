@@ -64,7 +64,7 @@
             <xs:element name="SqlExpression" type="xs:string" minOccurs="0"/>
             <xs:element name="CompatibilityLevel" type="xs:string" minOccurs="0"/>
         </xs:sequence>
-        <xs:attribute ref="i:type" />
+        <xs:attribute name="type" ref="i:type" />
     </xs:complexType>
 
     <xs:attribute name="TrueFilter">
