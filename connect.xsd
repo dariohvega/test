@@ -63,10 +63,10 @@
             <xs:element name="SqlExpression" type="xs:string" minOccurs="0"/>
             <xs:element name="CompatibilityLevel" type="xs:string" minOccurs="0"/>
         </xs:sequence>
-        <xs:attribute ref="tns:type" />
+        <xs:attribute ref="tns:TrueFilter" />
     </xs:complexType>
 
-    <xs:attribute name="type">
+    <xs:attribute name="TrueFilter">
         <xs:simpleType>
             <xs:restriction base="xs:string">
                 <xs:enumeration value="SqlFilter"/>
