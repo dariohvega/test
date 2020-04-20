@@ -1,7 +1,8 @@
 <xs:schema elementFormDefault="qualified" version="1.0"
            targetNamespace="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"
            xmlns:tns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"
-           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
 
     <xs:element name="QueueDescription" type="tns:queueDescription"/>
 
@@ -17,10 +18,10 @@
             <xs:element name="DuplicateDetectionHistoryTimeWindow" type="xs:string" minOccurs="0"/>
             <xs:element name="MaxDeliveryCount" type="xs:int" minOccurs="0"/>
             <xs:element name="SizeInBytes" type="xs:string" minOccurs="0"/>
-	    <xs:element name="MessageCount" type="xs:string" minOccurs="0"/>                                                         
+            <xs:element name="MessageCount" type="xs:string" minOccurs="0"/>
         </xs:all>
     </xs:complexType>
-	
+
     <xs:element name="TopicDescription" type="tns:topicDescription"/>
 
     <xs:complexType name="topicDescription">
@@ -30,10 +31,10 @@
             <xs:element name="EnableBatchedOperations" type="xs:boolean" minOccurs="0"/>
             <xs:element name="DefaultMessageTimeToLive" type="xs:string" minOccurs="0"/>
             <xs:element name="DuplicateDetectionHistoryTimeWindow" type="xs:string" minOccurs="0"/>
-	    <xs:element name="SizeInBytes" type="xs:string" minOccurs="0"/>	
+            <xs:element name="SizeInBytes" type="xs:string" minOccurs="0"/>
         </xs:all>
     </xs:complexType>
-	
+
     <xs:element name="SubscriptionDescription" type="tns:subscriptionDescription"/>
 
     <xs:complexType name="subscriptionDescription">
@@ -47,21 +48,40 @@
             <xs:element name="MaxDeliveryCount" type="xs:int" minOccurs="0"/>
             <xs:element name="MessageCount" type="xs:int" minOccurs="0"/>
         </xs:all>
-    </xs:complexType>	
-	
-    <xs:element name="RuleDescription">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element minOccurs="0" name="Filter">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element minOccurs="0" name="SqlExpression" type="xs:string" />
-							<xs:element minOccurs="0" name="CompatibilityLevel" type="xs:string" />
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	
+    </xs:complexType>
+
+    <xs:element name="RuleDescription" type="tns:ruleDescription"/>
+
+    <xs:complexType name="ruleDescription">
+        <xs:sequence>
+            <xs:element name="Filter" type="tns:ruleFilter" minOccurs="0"/>
+            <xs:element name="Action" type="tns:ruleAction" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ruleFilter">
+        <xs:sequence>
+            <xs:element name="SqlExpression" type="xs:string" minOccurs="0"/>
+            <xs:element name="CompatibilityLevel" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute ref="i:type" />
+    </xs:complexType>
+
+    <xs:attribute name="TrueFilter">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="SqlFilter"/>
+                <xs:enumeration value="TrueFilter"/>
+                <xs:enumeration value="FalseFilter"/>
+                <xs:enumeration value="CorrelationFilter"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+
+    <xs:complexType name="ruleAction">
+        <xs:sequence>
+            <xs:element name="SqlExpression" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
 </xs:schema>
