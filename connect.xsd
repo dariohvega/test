@@ -61,7 +61,7 @@
         </xs:all>
     </xs:complexType>
 
-        <xs:element name="Filter" type="tns:ruleFilter"/>
+    <xs:element name="Filter"/>
 
     <xs:simpleType name="SqlFilter">
         <xs:restriction base="xs:string"/>
@@ -78,11 +78,11 @@
 
     <xs:element name="Action"/>
 
-    <xs:complexType name="ruleFilter">
-        <xs:sequence>
-            <xs:element name="SqlExpression" type="xs:string" minOccurs="0"/>
-            <xs:element name="CorrelationId" type="xs:string" minOccurs="0"/>
-        </xs:sequence>
-    </xs:complexType>
+<!--    <xs:complexType name="ruleFilter">-->
+<!--        <xs:sequence>-->
+<!--            <xs:element name="SqlExpression" type="xs:string" minOccurs="0"/>-->
+<!--            <xs:element name="CorrelationId" type="xs:string" minOccurs="0"/>-->
+<!--        </xs:sequence>-->
+<!--    </xs:complexType>-->
 
 </xs:schema>
