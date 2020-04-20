@@ -63,9 +63,13 @@
 
     <xs:element name="Filter"/>
 
-    <xs:simpleType name="SqlFilter">
-        <xs:restriction base="xs:string"/>
-    </xs:simpleType>
+    <xs:complexType name="SqlFilter">
+        <xs:sequence>
+            <xs:element name="SqlExpression" type="xs:string" minOccurs="0"/>
+            <xs:element name="CorrelationId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+           
     <xs:simpleType name="TrueFilter">
         <xs:restriction base="xs:string"/>
     </xs:simpleType>
