@@ -1,10 +1,7 @@
 <xs:schema elementFormDefault="qualified" version="1.0"
            targetNamespace="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"
            xmlns:tns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"
-           xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-           
-           <xs:import namespace="http://www.w3.org/2001/XMLSchema-instance"/>
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
     <xs:element name="QueueDescription" type="tns:queueDescription"/>
 
