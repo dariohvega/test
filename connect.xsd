@@ -93,4 +93,21 @@
 
     <xs:element name="Action"/>
 
+    <xs:complexType name="SqlRuleAction">
+        <xs:complexContent>
+            <xs:extension base="tns:ruleAction"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="EmptyRuleAction">
+        <xs:complexContent>
+            <xs:extension base="tns:ruleAction"/>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="ruleAction">
+        <xs:sequence>
+            <xs:element name="SqlExpression" type="xs:string" minOccurs="0"/>
+        </xs:sequence>    
+    </xs:complexType>
+
 </xs:schema>
