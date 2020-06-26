@@ -2,9 +2,7 @@
            targetNamespace="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"
            xmlns:tns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"
            xmlns:xs="http://www.w3.org/2001/XMLSchema">
-
     <xs:element name="QueueDescription" type="tns:queueDescription"/>
-
     <xs:complexType name="queueDescription">
         <xs:all>
             <xs:element name="LockDuration" type="xs:string" minOccurs="0"/>
@@ -20,9 +18,7 @@
             <xs:element name="MessageCount" type="xs:string" minOccurs="0"/>
         </xs:all>
     </xs:complexType>
-
     <xs:element name="TopicDescription" type="tns:topicDescription"/>
-
     <xs:complexType name="topicDescription">
         <xs:all>
             <xs:element name="MaxSizeInMegabytes" type="xs:long" minOccurs="0"/>
@@ -33,9 +29,7 @@
             <xs:element name="SizeInBytes" type="xs:string" minOccurs="0"/>
         </xs:all>
     </xs:complexType>
-
     <xs:element name="SubscriptionDescription" type="tns:subscriptionDescription"/>
-
     <xs:complexType name="subscriptionDescription">
         <xs:all>
             <xs:element name="LockDuration" type="xs:string" minOccurs="0"/>
@@ -48,63 +42,40 @@
             <xs:element name="MessageCount" type="xs:int" minOccurs="0"/>
         </xs:all>
     </xs:complexType>
-           
     <xs:element name="RuleDescription" type="tns:ruleDescription"/>
-
     <xs:complexType name="ruleDescription">
         <xs:all>
             <xs:element ref="tns:Filter" minOccurs="0"/>
             <xs:element ref="tns:Action" minOccurs="0"/>
         </xs:all>
     </xs:complexType>
-
-    <xs:element name="Filter"/>
-
-    <xs:complexType name="SqlFilter">
-        <xs:complexContent>
-            <xs:extension base="tns:ruleFilter"/>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="TrueFilter">
-        <xs:complexContent>
-            <xs:extension base="tns:ruleFilter"/>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="FalseFilter">
-        <xs:complexContent>
-            <xs:extension base="tns:ruleFilter"/>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="CorrelationFilter">
-        <xs:complexContent>
-            <xs:extension base="tns:ruleFilter"/>
-        </xs:complexContent>
-    </xs:complexType>
-
+    <xs:element name="Filter" type="tns:ruleFilter"/>
+    <xs:element name="Action" type="tns:ruleAction"/>
     <xs:complexType name="ruleFilter">
         <xs:sequence>
             <xs:element name="SqlExpression" type="xs:string" minOccurs="0"/>
             <xs:element name="CorrelationId" type="xs:string" minOccurs="0"/>
+            <xs:element name="RuleFilterType" type="tns:RuleFilterType" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
-
-    <xs:element name="Action"/>
-
-    <xs:complexType name="SqlRuleAction">
-        <xs:complexContent>
-            <xs:extension base="tns:ruleAction"/>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="EmptyRuleAction">
-        <xs:complexContent>
-            <xs:extension base="tns:ruleAction"/>
-        </xs:complexContent>
-    </xs:complexType>
-
+    <xs:simpleType name="RuleFilterType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SqlFilter"/>
+            <xs:enumeration value="TrueFilter"/>
+            <xs:enumeration value="FalseFilter"/>
+            <xs:enumeration value="CorrelationFilter"/>
+        </xs:restriction>
+    </xs:simpleType>
     <xs:complexType name="ruleAction">
         <xs:sequence>
             <xs:element name="SqlExpression" type="xs:string" minOccurs="0"/>
-        </xs:sequence>    
+            <xs:element name="RuleActionType" type="tns:RuleActionType" minOccurs="0"/>
+        </xs:sequence>
     </xs:complexType>
-
+    <xs:simpleType name="RuleActionType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SqlRuleAction"/>
+            <xs:enumeration value="EmptyRuleAction"/>
+        </xs:restriction>
+    </xs:simpleType>
 </xs:schema>
