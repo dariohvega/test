@@ -45,17 +45,24 @@
     <xs:element name="RuleDescription" type="tns:ruleDescription"/>
     <xs:complexType name="ruleDescription">
         <xs:all>
-            <xs:element ref="tns:Filter" minOccurs="0"/>
-            <xs:element ref="tns:Action" minOccurs="0"/>
+            <xs:element ref="tns:Filter" minOccurs="0">
+                <xs:complexType>
+                    <xs:attribute name="type" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element ref="tns:Action" minOccurs="0">
+                <xs:complexType>
+                    <xs:attribute name="type" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
         </xs:all>
     </xs:complexType>
     <xs:element name="Filter" type="tns:ruleFilter"/>
     <xs:element name="Action" type="tns:ruleAction"/>
-    <xs:complexType name="ruleFilter">
+    <xs:complexType name="ruleFilter" >
         <xs:sequence>
             <xs:element name="SqlExpression" type="xs:string" minOccurs="0"/>
-            <xs:element name="CorrelationId" type="xs:string" minOccurs="0"/>
-            <xs:element name="RuleFilterType" type="tns:RuleFilterType" minOccurs="0"/>
+            <xs:element name="CompatibilityLevel" type="xs:string" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
     <xs:simpleType name="RuleFilterType">
